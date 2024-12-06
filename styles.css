@@ -1,0 +1,159 @@
+/*
+Program name: patient-form.html
+Author: Riya Malhotra
+Date created: Sept 19, 2024
+Date last edited: Dec 4, 2024
+Version: 1.2
+Description: This file contains the patient registration form for Precision Care Medical.
+*/
+
+/* Body Styling */
+body {
+    font-family: 'Lucida Sans', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0; /* Remove default margin to properly handle fixed elements */
+    padding: 0;
+    padding-top: 270px; /* Adds space at the top for the header iframe so it doesn't overlap */
+    margin-bottom: 70px; /* Adds space at the bottom for the fixed footer */
+}
+
+/* Banner Styling (within Header) */
+.banner {
+    margin: 0; /* Remove any margin from the banner */
+    padding: 0; /* Remove padding from the banner to avoid unwanted space */
+}
+
+/* Heading Styling */
+h1, h2 {
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    color: #004080;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 10px;
+}
+
+/* Fixed Header iFrame Styling */
+#headerIframe {
+    position: fixed;
+    top: 0; /* Starts at the very top of the page */
+    left: 0;
+    width: 100%; /* Spans the full width of the page */
+    height: 250px; /* Adjusted height to fit the entire header content and logo */
+    border: none; /* Removes iFrame border for a seamless look */
+    z-index: 1000; /* Keeps the header above other elements */
+}
+
+/* Styling for the Fixed Header and Banner Container */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f0f8ff;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align all content within the header */
+    padding: 20px 0; /* Add padding to space elements nicely */
+}
+
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    text-align: center; /* Centers text content */
+    gap: 15px; /* Adds spacing between the logo, title, and date */
+}
+
+/* Styling for the Logo in Banner Container */
+.banner-container img {
+    border-radius: 50%;
+    width: 150px; /* Adjusted size to make the logo more proportionate */
+    height: auto; /* Maintains the aspect ratio of the logo */
+}
+
+/* Styling for the Header Title */
+.banner-container h1 {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    color: #004080;
+    margin: 0;
+}
+
+/* Styling for the Date Text in Header */
+.banner-container p {
+    margin: 0;
+    font-size: 16px;
+    color: #004080;
+}
+
+/* Fixed Footer Styling */
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #004080;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000; /* Keeps footer above other elements */
+}
+
+/* Footer Button Styling */
+footer button {
+    background-color: #fff;
+    color: #004080;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #cccccc;
+}
+
+/* Banner Styling (within Header) */
+.banner p {
+    margin-top: 0;
+    font-size: 20px;
+    color: #004080;
+}
+
+.banner img {
+    border-radius: 50%;
+    width: 300px; /* Adjust this value to make the logo smaller */
+    height: auto; /* Maintains the aspect ratio of the logo */
+    text-align: center;
+}
+
+/* Social Links Styling */
+.social-links a {
+    color: black;
+    text-decoration: underline;
+}
+
+/* Styling for the Embedded CDC iFrame Section */
+iframe {
+    border: 1px solid #ccc; /* Adds a light border around the iFrame */
+    margin: 20px 0; /* Adds spacing above and below the iFrame */
+}
+
+/* Styling for Main Content Section */
+main {
+    padding-bottom: 70px; /* Adds padding at the bottom to avoid overlap with the footer */
+}
+
+#headerTitle {
+    font-family: 'Georgia', serif;
+    color: #004080;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+}
