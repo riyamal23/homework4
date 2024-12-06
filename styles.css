@@ -11,11 +11,13 @@ Description: This file contains the patient registration form for Precision Care
 body {
     font-family: 'Lucida Sans', sans-serif;
     background-color: #f0f8ff;
-    color: #333;
+    color: #004080;
+    font-size: 20px;
+    font-weight: bold;
     margin: 0; /* Remove default margin to properly handle fixed elements */
     padding: 0;
-    padding-top: 270px; /* Adds space at the top for the header iframe so it doesn't overlap */
-    margin-bottom: 70px; /* Adds space at the bottom for the fixed footer */
+    padding-top: 300px; /* Adds space at the top for the header iframe so it doesn't overlap */
+    margin-bottom: 80px; /* Adds space at the bottom for the fixed footer */
 }
 
 /* Banner Styling (within Header) */
@@ -76,7 +78,7 @@ table td {
 /* Styling for the Logo in Banner Container */
 .banner-container img {
     border-radius: 50%;
-    width: 150px; /* Adjusted size to make the logo more proportionate */
+    width: 50px; /* Adjusted size to make the logo more proportionate */
     height: auto; /* Maintains the aspect ratio of the logo */
 }
 
@@ -128,7 +130,7 @@ footer button:hover {
 
 .banner img {
     border-radius: 50%;
-    width: 300px; /* Adjust this value to make the logo smaller */
+    width: 175px; /* Adjust this value to make the logo smaller */
     height: auto; /* Maintains the aspect ratio of the logo */
     text-align: center;
 }
@@ -154,6 +156,6 @@ main {
     font-family: 'Georgia', serif;
     color: #004080;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 24px;
 }
