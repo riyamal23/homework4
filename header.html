@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Header</title>
+    <style>
+        /* Make the header fixed */
+        body {
+            margin: 0; 
+            padding: 0;
+            top: 0; 
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f0f8ff;
+            z-index: 1000;
+            padding: 0px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #004080;
+        }
+
+        .banner img {
+            width: 250px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <div class="banner">
+            <h1 id="headerTitle">Precision Care Medical</h1>
+            <img src="../../Precision_Care.png" alt="Company Logo">
+            <p>Today is: <span id="currentDate"></span></p>
+        </div>
+        <div id="dynamicCheckboxContainer" style="margin-top: 50px;"></div>
+    </header>
+
+    <script>
+        // Function to display the current date in the header
+        function displayDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            const dateElement = document.getElementById('currentDate');
+            if (dateElement) {
+                dateElement.innerHTML = today;
+            }
+        }
+
+        // Function to set a cookie with an expiry of 48 hours
+        function setCookie(name, value, hours) {
+            const date = new Date();
+            date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = `${name}=${value};${expires};path=/;`;
+            console.log(`Cookie set: ${name}=${value}`);
+        }
+
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const cookieArray = decodedCookie.split(';');
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i].trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length);
+                }
+            }
+            return null;
+        }
+
+        // Function to delete a cookie
+        function deleteCookie(name) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            console.log(`Cookie deleted: ${name}`);
+        }
+
+        // Function to handle greeting based on cookie
+        function handleGreeting() {
+            const savedFirstName = getCookie('firstName');
+            const headerTitle = document.getElementById('headerTitle');
+            const dynamicCheckboxContainer = document.getElementById('dynamicCheckboxContainer');
+
+            if (!headerTitle) {
+                console.error("Header title element not found!");
+                return;
+            }
+
+            if (savedFirstName) {
+                // Set personalized greeting if savedFirstName exists
+                headerTitle.textContent = `Welcome back, ${savedFirstName}! Precision Care Medical`;
+
+                // If the dynamic checkbox container exists, add the checkbox
+                if (dynamicCheckboxContainer) {
+                    dynamicCheckboxContainer.innerHTML = '';  // Clear previous content if any
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'newUserCheckbox';
+                    checkbox.onclick = clearUserData;
+
+                    const label = document.createElement('label');
+                    label.htmlFor = 'newUserCheckbox';
+                    label.textContent = `Not ${savedFirstName}? Click here to start as a new user.`;
+
+                    dynamicCheckboxContainer.appendChild(checkbox);
+                    dynamicCheckboxContainer.appendChild(label);
+                } else {
+                    console.error("Dynamic checkbox container not found!");
+                }
+            } else {
+                // Set default greeting if no savedFirstName exists
+                headerTitle.textContent = "Welcome New User! Precision Care Medical";
+            }
+        }
+
+        // Function to clear user data and delete the cookie
+        function clearUserData() {
+            const isChecked = document.getElementById('newUserCheckbox').checked;
+            if (isChecked) {
+                deleteCookie('firstName');
+                // Optionally, clear the form by reloading the page or other actions
+                window.location.reload();  // Reload the page to reflect changes
+            }
+        }
+
+        // Attach event listener when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            displayDate();  // Display the current date
+            handleGreeting();  // Display greeting and dynamic checkbox if needed
+        });
+    </script>
+</body>
+</html>
